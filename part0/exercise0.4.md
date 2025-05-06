@@ -6,12 +6,16 @@ sequenceDiagram
     participant browser
     participant server
 
+    Note right of browser: The browser sends the form data to the server
+
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
     server-->>browser: URL redirection
     deactivate server
 
-    Note right of browser: The browser sends the form data to the server
+    note left of server: The server asks the browser to perform a new request to the notes page 
+    
+    note right of browser: The browser reloads the notes page
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
